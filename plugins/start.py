@@ -66,8 +66,8 @@ async def start(bot, update):
                 text="<b>ᴇxᴘɪʀᴇᴅ ʟɪɴᴋ ᴏʀ ɪɴᴠᴀʟɪᴅ ʟɪɴᴋ !</b>",
                 protect_content=True
             ) 
-            @Bot.on_message(filters.private & ~filters.via_bot & filters.regex(pattern=".*http.*"))
-async def echo(bot, update):
+@Bot.on_message(filters.private & ~filters.via_bot & filters.regex(pattern=".*http.*"))
+    async def echo(bot, update):
     if not await check_verification(bot, update.from_user.id) and Config.TECH_VJ == True:
         btn = [[
             InlineKeyboardButton("👨‍💻 ᴠᴇʀɪғʏ", url=await get_token(bot, update.from_user.id, f"https://telegram.me/{Config.TECH_VJ_BOT_USERNAME}?start="))
